@@ -1,0 +1,36 @@
+<table mat-table [dataSource]="funcionariosValor" class="mat-elevation-z8">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+    </ng-container>
+  
+    <!-- Nome Funcionario Column -->
+    <ng-container matColumnDef="NOME_FUNCIONARIO">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let element"> {{element.NOME_FUNCIONARIO}} </td>
+    </ng-container>
+  
+    <!-- Gestor Column -->
+    <ng-container matColumnDef="GESTOR">
+      <th mat-header-cell *matHeaderCellDef> Gestor </th>
+      <td mat-cell *matCellDef="let element"> {{element.GESTOR}} </td>
+    </ng-container>
+  
+    <!-- Salario Column -->
+    <ng-container matColumnDef="SALARIO_FUNCIONARIO">
+      <th mat-header-cell *matHeaderCellDef> Salário </th>
+      <td mat-cell *matCellDef="let element"> {{element.SALARIO_FUNCIONARIO}} </td>
+    </ng-container>
+  
+    <!-- FLG_ATIVO Column -->
+    <ng-container matColumnDef="FLG_ATIVO">
+      <th mat-header-cell *matHeaderCellDef> Ativo </th>
+      <td mat-cell *matCellDef="let element"> {{element.FLG_ATIVO ? 'Sim' : 'Não'}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

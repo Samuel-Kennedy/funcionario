@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Cadastro de Usuário</h1>
+  
+    <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Nome Completo</mat-label>
+        <input matInput placeholder="Digite seu nome completo" formControlName="nome" required>
+        <mat-error *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched">
+          Nome é obrigatório e deve ter pelo menos 3 caracteres.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Digite seu email" type="email" formControlName="email" required>
+        <mat-error *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched">
+          Insira um email válido.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Senha</mat-label>
+        <input matInput placeholder="Digite sua senha" type="password" formControlName="senha" required>
+        <mat-error *ngIf="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched">
+          Senha é obrigatória e deve ter pelo menos 6 caracteres.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Confirme sua Senha</mat-label>
+        <input matInput placeholder="Confirme sua senha" type="password" formControlName="confirmarSenha" required>
+        <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.invalid && cadastroForm.get('confirmarSenha')?.touched">
+          Confirmação de senha é obrigatória.
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="button-container">
+        <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+        <button mat-button color="warn" type="button" (click)="cadastroForm.reset()">Limpar</button>
+      </div>
+    </form>
+  </div>
+  
